@@ -1,6 +1,6 @@
 import React from 'react'
 import './AllRides.css'
-import Ride from './Ride/Ride'
+import Ride from '../Ride/Ride'
 
 
 const AllRides = ({ allRides }) => {

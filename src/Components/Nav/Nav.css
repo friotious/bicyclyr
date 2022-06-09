@@ -1,0 +1,11 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header-home {
+    font-size: 55px;
+    font-weight: bold;
+    color:rgb(95, 85, 9)
+}
