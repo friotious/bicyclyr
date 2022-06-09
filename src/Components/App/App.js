@@ -14,9 +14,17 @@ class App extends Component {
         key: null,
       },
       weather: {},
-      userRides: []
+      allRides: []
     }
   }
+
+  // //Method to add ride--|   addRide = (ride) => {
+    //                                const newRides = this.state.allRides.filter(ride => {
+      //                                    ride === ride (or whatever...)
+ //                                       })
+//                                    if this.state does not contain 'ride'
+//                                    then, this.setState({ allRides: newRides})
+  //                           } 
 
   render() {
     return (
@@ -27,12 +35,12 @@ class App extends Component {
 
         <Route
           exact path='/book-ride'
-          render={() => <BookRide />}
+          render={() => <BookRide addRide={this.addRide} weather={this.state.weather}/>}
         />
         
         <Route
           exact path='/all-rides'
-          render={() =>   <AllRides />}
+          render={() =>   <AllRides allRides={allRides}/>}
         />
 
         <Route
