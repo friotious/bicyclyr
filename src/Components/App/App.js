@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css';
-import { Route, Switch, Link, BrowserRouter } from 'react-router-dom'
+import { Route, Switch, Link, NavLink, BrowserRouter } from 'react-router-dom'
 import BookRide from '../BookRide/BookRide'
 import AllRides from '../AllRides/AllRides'
 import Nav from '../Nav/Nav'
@@ -29,9 +29,10 @@ class App extends Component {
 
   render() {
     return (
-      <main className='App'>
-        <BrowserRouter>
+      <>
         <Nav />
+      <main className='App'>
+       
         <Switch>
 
         <Route
@@ -49,19 +50,19 @@ class App extends Component {
           render={() => {
             return (
               <div className ='homepage-main'>
-                <div id='empty-space-1' className='homepage-quarter'></div>
+                <div id='empty-space-1' className='homepage-quarter'>empty space1</div>
                 <Link to='/book-ride' className='homepage-link homepage-quarter' id='book-ride'>Book Ride</Link>
                 <Link to='/all-rides' className='homepage-link homepage-quarter' id='all-rides'>All Rides</Link>
-                <div id='empty-space-2' className='homepage-quarter'></div>
+                <div id='empty-space-2' className='homepage-quarter'>empty space2</div>
               </div>
             )
           }}
         />
 
-
         </Switch>
-        </BrowserRouter>
+      
       </main>
+      </>
     )
   }
 }
