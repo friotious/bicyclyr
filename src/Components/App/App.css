@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
+
+.App {
+  text-align: center;
+  font-family: 'Joan', serif;
+
+}
+
+
+
+.homepage-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+}
+
+.homepage-quarter {
+  height: 50%;
+  width: 50%;
+}
