@@ -11,20 +11,44 @@ class App extends Component {
     super()
     this.state = {
       city: {
-        name: 'Rapid City',
+        name: 'Seattle',
         key: null,
       },
       weather: {},
-      allRides: []
+      allRides: [],
+      apiKey: '1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB'
     }
   }
 
-  // //Method to add ride--|   addRide = (ride) => {
-    //                                const newRides = this.state.allRides.filter(ride => {
-      //                                    ride === ride (or whatever...)
- //                                       })
-//                                    if this.state does not contain 'ride'
-//                                    then, this.setState({ allRides: newRides})
+  getWeather = async () => {
+    try {
+        const apikey = '1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB'
+        const cityKeyUrl = 'http://dataservice.accuweather.com/locations/v1/cities/search'
+        const cityKeyQuery = `?apikey=${apikey}&q=${this.state.city.name}&details=true`
+        const weatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
+        const keyResponse = await fetch(cityKeyUrl + cityKeyQuery)
+        const data = await keyResponse.json()
+        const key = data[0].Key    
+        const weatherResponse = await fetch(weatherUrl + `${key}?apikey=${this.state.apiKey}&details=true`) 
+        const weather = await weatherResponse.json()
+        this.setState({ weather: weather[0]})
+    }catch(err) {
+      console.log(err)
+      
+    }
+  }
+
+  componentDidMount = () => {
+    this.getWeather()
+};
+
+
+  // Method to add ride--|   addRide = (ride) => {
+  //                                  const newRides = this.state.allRides.filter(ride => {
+  //                                        ride === ride (or whatever...)
+  //                                      })
+  //                                  if this.state does not contain 'ride'
+  //                                  then, this.setState({ allRides: newRides})
   //                           } 
 
   render() {
@@ -69,3 +93,4 @@ class App extends Component {
 
 
 export default App;
+
