@@ -1,13 +1,17 @@
 import React from "react";
 import './Nav.css'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 const Nav = () => {
     return (
         <div className='nav'>
-            <Link to='/book-ride'>book a ride</Link>       
+            <NavLink style={{ textDecoration: 'none' }} className='book-ride' to='/book-ride'>
+                <div className='book-ride-text'>book ride</div>
+            </NavLink>       
             <div className='header-home'> Bicyclyr </div>
-            <Link to='/all-rides'>all rides</Link>
+            <NavLink style={{ textDecoration: 'none' }} className='all-rides' to='/all-rides'>
+            <div className='book-ride-text'>all rides</div>
+            </NavLink>
         </div>
     )
 }

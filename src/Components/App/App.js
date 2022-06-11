@@ -55,9 +55,8 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <Nav />
       <main className='App'>
+        <Nav />
        
         <Switch>
 
@@ -76,10 +75,28 @@ class App extends Component {
           render={() => {
             return (
               <div className ='homepage-main'>
-                <div id='empty-space-1' className='homepage-quarter'>empty space1</div>
-                <Link to='/book-ride' className='homepage-link homepage-quarter' id='book-ride'>Book Ride</Link>
-                <Link to='/all-rides' className='homepage-link homepage-quarter' id='all-rides'>All Rides</Link>
-                <div id='empty-space-2' className='homepage-quarter'>empty space2</div>
+
+                <span className='homepage-box links'>
+                  <NavLink 
+                      style={{ textDecoration: 'none' }}
+                      to='/book-ride' 
+                      id='book-ride'>
+                        Book Ride
+                  </NavLink>
+                </span>
+
+                <span className='homepage-box links'>
+                  <NavLink 
+                      style={{ textDecoration: 'none' }}
+                      to='/all-rides' 
+                      id='all-rides'>
+                        All Rides
+                  </NavLink>
+                </span>
+
+                <span className='homepage-box'></span>
+                <span className='homepage-box'></span>
+
               </div>
             )
           }}
@@ -88,7 +105,6 @@ class App extends Component {
         </Switch>
       
       </main>
-      </>
     )
   }
 }
