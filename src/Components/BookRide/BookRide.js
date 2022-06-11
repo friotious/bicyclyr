@@ -11,6 +11,8 @@ class BookRide extends Component {
                 miles: null,
                 diffMult: null,
                 points: null,
+                rideWeather: {}
+                
             }
         }
     }
@@ -24,25 +26,22 @@ class BookRide extends Component {
         
         return (
             <div className='BookRide'>
-
-                <form className='form'>
+                <div className='top'>
                     <h3>Book your Ride</h3>
                     <p>Todays Temp:{this.state.weather}</p>
                     <p>Todays Multiple:{this.state.diffMult}</p>
-
-                    <input
-                    type='text'
-                    placeholder='Miles'
-                    name='title'
-                    value={this.state.ride.miles}
-                    />
-                    <p>Total:{this.state.ride.points}</p>
-
-                
-
-                </form>
-    
-                    <button onClick={() => this.addRide(this.state.ride)}>SUBMIT</button>
+                    <form className='form'>
+                        <input
+                        type='text'
+                        placeholder='Miles'
+                        name='title'
+                        value={this.state.ride.miles}
+                        />
+                        <p>Points:{this.state.ride.points}</p>
+                    </form>
+                    <button onClick={() => this.addRide(this.state.ride)}>RIDE!!!</button>
+                </div>
+                <div className='bottom'></div>
             </div>
         )
 
