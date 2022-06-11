@@ -4,6 +4,7 @@ import { Route, Switch, Link, NavLink, BrowserRouter } from 'react-router-dom'
 import BookRide from '../BookRide/BookRide'
 import AllRides from '../AllRides/AllRides'
 import Nav from '../Nav/Nav'
+import userData from '../../userData'
 
 
 class App extends Component {
@@ -28,18 +29,27 @@ class App extends Component {
         const weatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
         const keyResponse = await fetch(cityKeyUrl + cityKeyQuery)
         const data = await keyResponse.json()
-        const key = data[0].Key    
+        const key = data[0].Key  
+
         const weatherResponse = await fetch(weatherUrl + `${key}?apikey=${this.state.apiKey}&details=true`) 
         const weather = await weatherResponse.json()
         this.setState({ weather: weather[0]})
-    }catch(err) {
+
+    } catch(err) {
       console.log(err)
       
     }
   }
 
+  getUserData = async () => {
+      this.setState({allRides: userData})
+      // console.log(this.state.allRides[0].WeatherIcon, 'response')
+  }
+  
+
   componentDidMount = () => {
     this.getWeather()
+    this.getUserData()
   };
 
   addRide(ride) {
@@ -67,7 +77,7 @@ class App extends Component {
         
         <Route
           exact path='/all-rides'
-          render={() =>   <AllRides />}
+          render={() =>   <AllRides allRides={this.state.allRides}/>}
         />
 
         <Route

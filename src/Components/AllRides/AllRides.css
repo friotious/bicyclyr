@@ -1,0 +1,15 @@
+.top-all-rides,
+.bottom-all-rides {
+    height: 40vh;
+    width:110vw;
+}
+
+.top-all-rides {
+    display: grid;
+    grid-gap: 30px;
+    padding: 30px;
+    grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(200px,1fr);
+    overflow-x: auto;
+}
