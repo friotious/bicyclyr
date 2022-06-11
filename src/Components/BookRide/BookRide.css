@@ -2,11 +2,21 @@
     color:rgb(53, 49, 46)
 }
 
-.bottom {
-    height: 300px;
+.bottom,
+.top {
+    height: 50vh;
+    width:100vw;
 }
 
 .top {
-    height: 300px;
-    padding-bottom: 25px;
+    background-color: #E5E4D9;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    padding-bottom: 15px;;
+}
+
+p {
+    margin: 8px;
 }

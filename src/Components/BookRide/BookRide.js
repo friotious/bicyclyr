@@ -37,8 +37,8 @@ class BookRide extends Component {
                         name='title'
                         value={this.state.ride.miles}
                         />
-                        <p>Points:{this.state.ride.points}</p>
                     </form>
+                    <p>Points:{this.state.ride.points}</p>
                     <button onClick={() => this.addRide(this.state.ride)}>RIDE!!!</button>
                 </div>
                 <div className='bottom'></div>

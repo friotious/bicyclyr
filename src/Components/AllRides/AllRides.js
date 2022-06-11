@@ -13,6 +13,7 @@ const AllRides = ({ allRides }) => {
   
     return (
         <div className='AllRides'>
+            <div>test</div>
             {!allRides[0] && <h2> You need to ride more...</h2> }
             {displayAllRides}
         </div>

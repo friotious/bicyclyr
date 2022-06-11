@@ -7,8 +7,12 @@ const Nav = () => {
         <div className='nav'>
             <NavLink style={{ textDecoration: 'none' }} className='book-ride' to='/book-ride'>
                 <div className='book-ride-text'>book ride</div>
-            </NavLink>       
+            </NavLink>
+
+            <NavLink style={{ textDecoration: 'none' }} className='home' to='/'>
             <div className='header-home'> Bicyclyr </div>
+            </NavLink>
+
             <NavLink style={{ textDecoration: 'none' }} className='all-rides' to='/all-rides'>
             <div className='book-ride-text'>all rides</div>
             </NavLink>
