@@ -40,16 +40,18 @@ class App extends Component {
 
   componentDidMount = () => {
     this.getWeather()
-};
+  };
 
-
-  // Method to add ride--|   addRide = (ride) => {
-  //                                  const newRides = this.state.allRides.filter(ride => {
-  //                                        ride === ride (or whatever...)
-  //                                      })
-  //                                  if this.state does not contain 'ride'
-  //                                  then, this.setState({ allRides: newRides})
-  //                           } 
+  addRide(ride) {
+    this.setState({ allRides: [...this.state.allRides, ride]})
+    // Method to add ride--|   addRide = (ride) => {
+    //                                  const newRides = this.state.allRides.filter(ride => {
+    //                                        ride === ride (or whatever...)
+    //                                      })
+    //                                  if this.state does not contain 'ride'
+    //                                  then, this.setState({ allRides: newRides})
+    //                           } 
+  }
 
   render() {
     return (
