@@ -11,11 +11,12 @@ class App extends Component {
     super()
     this.state = {
       city: {
-        name: 'Rapid City',
+        name: 'Seattle',
         key: null,
       },
       weather: {},
-      allRides: []
+      allRides: [],
+      apiKey: '1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB'
     }
   }
 
@@ -41,13 +42,14 @@ class App extends Component {
     this.getWeather()
 };
 
-  // //Method to add ride--|   addRide = (ride) => {
-    //                                const newRides = this.state.allRides.filter(ride => {
-      //                                    ride === ride (or whatever...)
- //                                       })
-//                                    if this.state does not contain 'ride'
-//                                    then, this.setState({ allRides: newRides})
-  //                           } 
+  // Method to add ride--|   addRide = (ride) => {
+  //                                  const newRides = this.state.allRides.filter(ride => {
+  //                                        ride === ride (or whatever...)
+  //                                      })
+  //                                  if this.state does not contain 'ride'
+  //                                  then, this.setState({ allRides: newRides})
+
+
 
   render() {
     return (
@@ -93,7 +95,9 @@ class App extends Component {
 export default App;
 
 
-//<<<<--    API conditions call w/ key hardcoded ------>>>>>>
+
+
+  //<<<<--    API conditions call w/ key hardcoded ------>>>>>>
 
  // fetch("http://dataservice.accuweather.com/currentconditions/v1/336357?apikey=1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB&details=true")
   // .then(response => {
@@ -112,3 +116,4 @@ export default App;
   //     this.setState({
   //           weather: {}
   //     })});
+
