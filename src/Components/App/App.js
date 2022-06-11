@@ -19,6 +19,28 @@ class App extends Component {
     }
   }
 
+  getWeather = async () => {
+    try {
+        const apikey = '1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB'
+        const cityKeyUrl = 'http://dataservice.accuweather.com/locations/v1/cities/search'
+        const cityKeyQuery = `?apikey=${apikey}&q=${this.state.city.name}&details=true`
+        const weatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
+        const keyResponse = await fetch(cityKeyUrl + cityKeyQuery)
+        const data = await keyResponse.json()
+        const key = data[0].Key    
+        const weatherResponse = await fetch(weatherUrl + `${key}?apikey=${this.state.apiKey}&details=true`) 
+        const weather = await weatherResponse.json()
+        this.setState({ weather: weather[0]})
+    }catch(err) {
+      console.log(err)
+      
+    }
+  }
+
+  componentDidMount = () => {
+    this.getWeather()
+};
+
   // //Method to add ride--|   addRide = (ride) => {
     //                                const newRides = this.state.allRides.filter(ride => {
       //                                    ride === ride (or whatever...)
@@ -32,7 +54,7 @@ class App extends Component {
       <>
         <Nav />
       <main className='App'>
-       
+        <BrowserRouter />
         <Switch>
 
         <Route
@@ -51,8 +73,8 @@ class App extends Component {
             return (
               <div className ='homepage-main'>
                 <div id='empty-space-1' className='homepage-quarter'>empty space1</div>
-                <Link to='/book-ride' className='homepage-link homepage-quarter' id='book-ride'>Book Ride</Link>
-                <Link to='/all-rides' className='homepage-link homepage-quarter' id='all-rides'>All Rides</Link>
+                <NavLink to='/book-ride' className='homepage-link homepage-quarter' id='book-ride'>Book Ride</NavLink>
+                <NavLink to='/all-rides' className='homepage-link homepage-quarter' id='all-rides'>All Rides</NavLink>
                 <div id='empty-space-2' className='homepage-quarter'>empty space2</div>
               </div>
             )
@@ -60,7 +82,7 @@ class App extends Component {
         />
 
         </Switch>
-      
+          <BrowserRouter />
       </main>
       </>
     )
@@ -69,3 +91,24 @@ class App extends Component {
 
 
 export default App;
+
+
+//<<<<--    API conditions call w/ key hardcoded ------>>>>>>
+
+ // fetch("http://dataservice.accuweather.com/currentconditions/v1/336357?apikey=1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB&details=true")
+  // .then(response => {
+  //   if(response.ok) {
+  //     return response.json();
+  //   } else {
+  //     throw Error(response.status);
+  //   }})
+  //   .then(data => {
+  //     this.setState({
+  //             weather: data[0]
+  //      })
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //     this.setState({
+  //           weather: {}
+  //     })});

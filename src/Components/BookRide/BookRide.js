@@ -22,6 +22,15 @@ class BookRide extends Component {
     //Calculate pointsFromRide method 'onCHange' of form
 
     // Book ride button 'onCLick' should run add ride method from App
+    render() {
+        return (
+            <div className='BookRide'>
+        
+
+            </div>
+        )
+    }
+
 }
 
 export default BookRide
