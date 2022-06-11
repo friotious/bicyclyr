@@ -1,11 +1,30 @@
 .nav {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    height: 120px;
 }
 
 .header-home {
     font-size: 55px;
     font-weight: bold;
-    color:rgb(95, 85, 9)
+    color:rgb(53, 49, 46)
 }
+.book-ride {
+    margin-left: 15vw;
+    margin-right: 5vw;
+    text-decoration: 'none';
+}
+
+.all-rides {
+    margin-left: 5vw;
+    margin-right: 15vw;
+    text-decoration: 'none';
+}
+
+.book-ride-text,
+.all-rides-text {
+    color:rgb(53, 49, 46)
+
+}
+
