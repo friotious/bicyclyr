@@ -1,24 +1,27 @@
-import React from 'react'
-import './Ride.css'
-import image1 from '../../weather-icons/6.png'
-    
+import React from "react";
+import "./Ride.css";
 
 const Ride = ({ ride }) => {
-    return (
-      <div className='Ride'>
-        <h3>date: {ride.date}</h3>
-        <h4>points: {ride.points}</h4>
-        <p>{`${(ride.rideWeather.WeatherText).toLowerCase()} and ${(ride.rideWeather.RealFeelTemperature.Imperial.Phrase).toLowerCase()}`}</p>
-        <img className='weather-img'src={ require(`../../weather-icons/${ride.rideWeather.WeatherIcon}.png`)} alt={`${ride.rideWeather.WeatherText}`} />
-      </div>
-    )
-  }
+  return (
+    <div className="Ride">
+      <h3>date: {ride.date}</h3>
+      <h4>points: {ride.points}</h4>
+      <p>{`${ride.rideWeather.WeatherText.toLowerCase()} and ${ride.rideWeather.RealFeelTemperature.Imperial.Phrase.toLowerCase()}`}</p>
+      <img
+        className="weather-img"
+        src={require(`../../weather-icons/${ride.rideWeather.WeatherIcon}.png`)}
+        alt={`${ride.rideWeather.WeatherText}`}
+      />
+      <p>Temp: {ride.rideWeather.Temperature.Imperial.Value}</p>
+    </div>
+  );
+};
 
-  export default Ride
-  
-  // ${ride.rideWeather.WeatherIcon}
- // Ride data weather 
- 
+export default Ride;
+
+// ${ride.rideWeather.WeatherIcon}
+// Ride data weather
+
 // const rideData =  ride: {
 //     miles: null,
 //     diffMult: null,
