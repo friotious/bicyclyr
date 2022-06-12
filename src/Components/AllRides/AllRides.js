@@ -10,6 +10,14 @@ function AllRides({ allRides }) {
             <Ride key={ride.date} ride={ride} />
         )
     })
+
+    const displayPoints = () => {
+        const points = allRides.reduce((acc, ride) => {
+            acc += ride.points
+            return acc
+        }, 0)
+        return points
+    }
     
     return (
         <div className='AllRides'>
@@ -18,7 +26,9 @@ function AllRides({ allRides }) {
                 {displayAllRides}
             </div>
             <div className='bottom-all-rides'>
-                
+                <div className="total-points">
+                    <div>Total Points to date: {`${displayPoints()}`}</div>
+                </div>  
             </div>
         </div>
     )

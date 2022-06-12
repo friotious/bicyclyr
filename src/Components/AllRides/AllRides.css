@@ -2,6 +2,11 @@
 .bottom-all-rides {
     height: 40vh;
     width:110vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+
 }
 
 .top-all-rides {
@@ -12,4 +17,16 @@
     grid-auto-flow: column;
     grid-auto-columns: minmax(200px,1fr);
     overflow-x: auto;
+    background-color: #E5E4D9;
+}
+
+.total-points {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    background-color: #E5E4D9;
+    padding-top: 24px;
+    border-radius: 1em;
 }

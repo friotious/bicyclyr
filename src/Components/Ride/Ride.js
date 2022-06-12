@@ -10,6 +10,7 @@ const Ride = ({ ride }) => {
         <h4>points: {ride.points}</h4>
         <p>{`${(ride.rideWeather.WeatherText).toLowerCase()} and ${(ride.rideWeather.RealFeelTemperature.Imperial.Phrase).toLowerCase()}`}</p>
         <img className='weather-img'src={ require(`../../weather-icons/${ride.rideWeather.WeatherIcon}.png`)} alt={`${ride.rideWeather.WeatherText}`} />
+        <p>Temp: {ride.rideWeather.Temperature.Imperial.Value}</p>
       </div>
     )
   }
