@@ -16,44 +16,38 @@ class App extends Component {
         key: null,
       },
       weather: weather,
-      allRides: [],
+      allRides: null,
       apiKey: "1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB",
     };
   }
 
-  // getWeather = async () => {
-  //   try {
-  //     const apikey = "1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB";
-  //     const cityKeyUrl =
-  //       "http://dataservice.accuweather.com/locations/v1/cities/search";
-  //     const cityKeyQuery = `?apikey=${apikey}&q=${this.state.city.name}&details=true`;
-  //     const weatherUrl =
-  //       "http://dataservice.accuweather.com/currentconditions/v1/";
-  //     const keyResponse = await fetch(cityKeyUrl + cityKeyQuery);
-  //     const data = await keyResponse.json();
-  //     const key = data[0].Key;
-  //     this.setState({ city: { key: key } });
-  //     const weatherResponse = await fetch(
-  //       weatherUrl + `${key}?apikey=${this.state.apiKey}&details=true`, { header: {
-  //         mode: 'no-cors'
-  //       }}
-  //     );
-  //     const weather = await weatherResponse.json();
-  //     this.setState({
-  //       weather: {
-  //         weatherText: weather[0].WeatherText,
-  //         weatherIcon: weather[0].WeatherIcon,
-  //         hasPrecip: weather[0].HasPrecipitation,
-  //         temp: weather[0].Temperature.Imperial.Value,
-  //         phrase: weather[0].RealFeelTemperature.Imperial.Phrase,
-  //         windChill: weather[0].WindChillTemperature.Imperial.Value,
-  //       },
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
+ refactor = (data) => {
+    const result = data.map(ride => {
+        return {
+            date: ride.date,
+            miles: ride.miles,
+            diffMult: ride.diffMult,
+            points: ride.points,
+            rideWeather: {
+                weatherText: ride.rideWeather.WeatherText,
+                weatherIcon: ride.rideWeather.WeatherIcon,
+                hasPrecip: ride.rideWeather.HasPrecipitation,
+                temp: ride.rideWeather.Temperature.Imperial.Value,
+                phrase: ride.rideWeather.RealFeelTemperature.Imperial.Phrase,
+                windChill: ride.rideWeather.WindChillTemperature.Imperial.Value,
+            }
+        }
+    })
+    console.log(result)
+    this.setState({ allRides: result})
+}
+
+  componentDidMount = () => {
+    this.refactor(userData)
+    this.getTestWeather()
+  };
+  
   getTestWeather = () => {
     this.setState({
       weather: {
@@ -66,22 +60,11 @@ class App extends Component {
       },
     });
   }
-
-
-  componentDidMount = () => {
-    // this.getTestWeather()
-    this.getUserData();
-    this.getTestWeather()
-  };
-
-  getUserData = async () => {
-    this.setState({ allRides: userData });
-  };
-
-  addRide(newRide) {
+  
+  addRide = (newRide) => {
     this.setState({ allRides: [...this.state.allRides, newRide] });
   }
-
+  
   render() {
     return (
       <main className="App">

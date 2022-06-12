@@ -5025,7 +5025,7 @@ const userData = [
         "Link": "http://www.accuweather.com/en/us/harlowton-mt/59036/current-weather/334202?lang=en-us"
     }
  } 
-
 ]
+
 export default userData
 
