@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import './App.css';
-import { Route, Switch, Link, NavLink, BrowserRouter } from 'react-router-dom'
+import { Route, Switch, Link, NavLink} from 'react-router-dom'
 import BookRide from '../BookRide/BookRide'
 import AllRides from '../AllRides/AllRides'
 import Nav from '../Nav/Nav'
 import userData from '../../userData'
-
+import testData from './data-test'
 
 class App extends Component {
   constructor() {
@@ -15,29 +15,30 @@ class App extends Component {
         name: 'Seattle',
         key: null,
       },
-      weather: {},
+      weather: testData,
       allRides: [],
       apiKey: '1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB'
     }
   }
 
-  getWeather = async () => {
-    try {
-        const apikey = '1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB'
-        const cityKeyUrl = 'http://dataservice.accuweather.com/locations/v1/cities/search'
-        const cityKeyQuery = `?apikey=${apikey}&q=${this.state.city.name}&details=true`
-        const weatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
-        const keyResponse = await fetch(cityKeyUrl + cityKeyQuery)
-        const data = await keyResponse.json()
-        const key = data[0].Key
-        this.setState({ city: { key: key }})  
-        const weatherResponse = await fetch(weatherUrl + `${key}?apikey=${this.state.apiKey}&details=true`) 
-        const weather = await weatherResponse.json()
-        this.setState({ weather: weather[0]})
-    } catch(err) {
-      console.log(err)    
-    }
-  }
+  // getWeather = async () => {
+  //   try {
+  //       const apikey = '1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB'
+  //       const cityKeyUrl = 'http://dataservice.accuweather.com/locations/v1/cities/search'
+  //       const cityKeyQuery = `?apikey=${apikey}&q=${this.state.city.name}&details=true`
+  //       const weatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
+  //       const keyResponse = await fetch(cityKeyUrl + cityKeyQuery)
+  //       const data = await keyResponse.json()
+  //       const key = data[0].Key  
+
+  //       const weatherResponse = await fetch(weatherUrl + `${key}?apikey=${this.state.apiKey}&details=true`) 
+  //       const weather = await weatherResponse.json()
+  //       this.setState({ weather: weather[0]})
+
+  //   } catch(err) {
+  //     console.log(err)
+  //   }
+  // }
 
   getUserData = async () => {
       this.setState({allRides: userData})
@@ -46,7 +47,7 @@ class App extends Component {
   
 
   componentDidMount = () => {
-    this.getWeather()
+    // this.getWeather()
     this.getUserData()
   };
 
