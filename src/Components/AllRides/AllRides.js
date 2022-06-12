@@ -4,7 +4,7 @@ import Ride from "../Ride/Ride";
 
 function AllRides({ allRides }) {
   const displayAllRides = allRides.map((ride) => {
-    return <Ride key={ride.date} ride={ride} />;
+    return <Ride key={Date.now()} ride={ride} />;
   });
 
   const displayPoints = () => {
