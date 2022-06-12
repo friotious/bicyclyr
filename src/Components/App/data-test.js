@@ -1,5 +1,5 @@
 
- const testData =   {
+ const weather =   [{
         "LocalObservationDateTime": "2022-06-11T12:09:00-07:00",
         "EpochTime": 1654974540,
         "WeatherText": "Cloudy",
@@ -378,6 +378,6 @@
         },
         "MobileLink": "http://www.accuweather.com/en/us/port-townsend-wa/98368/current-weather/336357?lang=en-us",
         "Link": "http://www.accuweather.com/en/us/port-townsend-wa/98368/current-weather/336357?lang=en-us"
-    }
+    }]
 
-    export default testData
+    export default weather
