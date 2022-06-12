@@ -28,7 +28,7 @@ class BookRide extends Component {
         if (temp > 45 && temp < 84 && !hasPrecip) {num -= 0.2;}
         this.setState({ ride: {
             ...this.state.ride,
-            diffMult: num
+            diffMult: num.toFixed(1)
         }})
     } else {
         return
@@ -55,17 +55,10 @@ class BookRide extends Component {
 }
 
 
-// componentDidUpdate = () => {
-    //     // this.setDiffAndPoints()
-    //   };
-    
-    saveRide = (event) => {
+    saveRide = e => {
+        e.preventDefault();
         const { addRide } = this.props.addRide
-        event.preventDefault();
-        const newRide = {
-            id: Date.now(),
-            ...this.state.ride,
-        };
+        const newRide = { ...this.state };
         addRide(newRide);
         this.clearInputs();
     };
@@ -80,24 +73,23 @@ class BookRide extends Component {
         });
     };
 
-    setDiffAndPoints = () => {
-      if (!this.state.ride.diffMult) {
-          this.setState({
-            ride: {
-                ...this.state.ride,
-                diffMult: this.getDiffMult(),
-                points: this.getPoints()
-            }})
-        } else {
-            return
-        }
-    }
+    // setDiffAndPoints = () => {
+    //   if (!this.state.ride.diffMult) {
+    //       this.setState({
+    //         ride: {
+    //             ...this.state.ride,
+    //             diffMult: this.getDiffMult(),
+    //             points: this.getPoints()
+    //         }})
+    //     } else {
+    //         return
+    //     }
+    // }
 
-    getPoints = () => {
-    }
+    // getPoints = () => {
+    // }
        
   handleMilesChange = (event) => {
-    //   this.setDiffAndPoints()
     this.setState({
       ride: {
         ...this.state.ride,
@@ -105,7 +97,6 @@ class BookRide extends Component {
         points: event.target.value * this.state.ride.diffMult
       }
     });
-    // this.getPoints()
   };
 
   handleDateChange = (e) => {
