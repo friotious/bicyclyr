@@ -29,15 +29,13 @@ class App extends Component {
         const weatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
         const keyResponse = await fetch(cityKeyUrl + cityKeyQuery)
         const data = await keyResponse.json()
-        const key = data[0].Key  
-
+        const key = data[0].Key
+        this.setState({ city: { key: key }})  
         const weatherResponse = await fetch(weatherUrl + `${key}?apikey=${this.state.apiKey}&details=true`) 
         const weather = await weatherResponse.json()
         this.setState({ weather: weather[0]})
-
     } catch(err) {
-      console.log(err)
-      
+      console.log(err)    
     }
   }
 
@@ -52,8 +50,8 @@ class App extends Component {
     this.getUserData()
   };
 
-  addRide(ride) {
-    this.setState({ allRides: [...this.state.allRides, ride]})
+  addRide(newRide) {
+    this.setState({ allRides: [...this.state.allRides, newRide]})
     // Method to add ride--|   addRide = (ride) => {
     //                                  const newRides = this.state.allRides.filter(ride => {
     //                                        ride === ride (or whatever...)

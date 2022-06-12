@@ -2,18 +2,15 @@ import React, { Component } from 'react'
 import './BookRide.css'
 
 class BookRide extends Component {
-    constructor({ addRide, weather }) {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            weatherData: weather,
-            diffMult: 1.2,
             ride: {
-                date: '',
+                date: new Date().toLocaleDateString(),
                 miles: '',
                 diffMult: 0,
                 points: null,
-                rideWeather: {}
-                
+                rideWeather: this.props.weather
             }
         }
     }
@@ -29,14 +26,37 @@ class BookRide extends Component {
 
     componentDidMount = () => {
     
-
-        // compute point multiple from weather data
-        // display point multiple
     }
 
-    handleChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
-      }
+
+bookRide =  event => {
+    event.preventDefault()
+    const newRide = {
+        id: Date.now(),
+        ...this.state.ride
+    }
+    this.props.addRide(newRide)
+    this.clearInputs()
+}
+
+clearInputs = () => {
+    this.setState({ ride: {
+        ...this.state.ride,
+        date: '', 
+        miles: '' }})
+}
+
+
+
+handleChange = event => {
+
+    this.setState({ ride: {
+                ...this.state.ride,
+                [event.target.name]: event.target.value,
+      
+
+            }});
+}
     
     render() {
         
@@ -44,9 +64,11 @@ class BookRide extends Component {
             <div className='BookRide'>
                 <div className='top-book-ride'>
                     <div className='form-box'>
+
                         <h3>Book your Ride</h3>
                         <p>Todays Temp:{this.state.weather}</p>
                         <p>Todays Multiple:{this.state.diffMult}</p>
+
                         <form className='form'>
                             <input
                             type='text'
@@ -55,6 +77,7 @@ class BookRide extends Component {
                             value={this.state.ride.miles}
                             onChange={event => this.handleChange(event)}
                             />
+
                             <input
                             type='text'
                             placeholder={new Date().toLocaleDateString()}
@@ -63,17 +86,15 @@ class BookRide extends Component {
                             onChange={event => this.handleChange(event)}
                             />
                         </form>
-                        
-                    
                         <p>Points:{this.state.ride.points}</p>
-                        <button onClick={() => this.addRide(this.state.ride)}>RIDE!!!</button>
+                        <button onClick={event => this.bookRide(this.state.ride)}>RIDE!!!</button>
                     </div>
                 </div>
                 <div className='bottom-book-ride'></div>
             </div>
         )
 
-    }
+    };
 
     //Calculate pointsFromRide method 'onCHange' of form
 

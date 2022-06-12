@@ -1,15 +1,16 @@
-.top-all-rides,
+
 .bottom-all-rides {
     height: 40vh;
-    width:110vw;
+    width:100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: stretch;
-
 }
 
-.top-all-rides {
+
+
+/* .top-all-rides {
     display: grid;
     grid-gap: 30px;
     padding: 30px;
@@ -18,6 +19,18 @@
     grid-auto-columns: minmax(200px,1fr);
     overflow-x: auto;
     background-color: #E5E4D9;
+    height: 40vh;
+    width:110vw;    
+} */
+
+.top-all-rides {
+    align-items: center;
+    display: flex;
+    overflow-x: scroll;
+    background-color: #E5E4D9;
+    height: 40vh;
+    width: auto;    
+
 }
 
 .total-points {

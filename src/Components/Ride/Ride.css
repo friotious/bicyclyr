@@ -1,6 +1,6 @@
 .Ride {
     height: 300px;
-    width: 200px;
+    min-width: 200px;
     background-color: #B8B7B0;
     margin: 15px;
     border-radius: 1em;
