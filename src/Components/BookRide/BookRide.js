@@ -1,6 +1,6 @@
-import { toHaveAccessibleDescription } from "@testing-library/jest-dom/dist/matchers";
 import React, { Component } from "react";
 import "./BookRide.css";
+import PropTypes from 'prop-types';
 
 class BookRide extends Component {
   constructor(props) {
@@ -135,3 +135,14 @@ clearInputs = () => {
 }
 
 export default BookRide;
+
+BookRide.propTypes = {
+    weatherText: PropTypes.string.isRequired,
+    weatherIcon: PropTypes.node.isRequired,
+    hasPrecip: PropTypes.bool.isRequired,
+    temp: PropTypes.number.isRequired,
+    phrase: PropTypes.string.isRequired,
+    windChill: PropTypes.number.isRequired
+}
+
+ 

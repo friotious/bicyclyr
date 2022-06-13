@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Route, Switch, Link, NavLink } from "react-router-dom";
+import { Route, Switch, NavLink } from "react-router-dom";
 import BookRide from "../BookRide/BookRide";
 import AllRides from "../AllRides/AllRides";
 import Nav from "../Nav/Nav";
- import userData from "../../assets/userData";
- import weather from "../../assets/data-test";
+import userData from "../../assets/userData";
+import weather from "../../assets/data-test";
 
 class App extends Component {
   constructor() {
@@ -20,48 +20,50 @@ class App extends Component {
     };
   }
 
-// getWeather = async () => {
-//   try {
-//       const cityKeyUrl = 'http://dataservice.accuweather.com/locations/v1/cities/search'
-//       const cityKeyQuery = `?apikey=1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB&q=${this.state.city.name}&details=true`
-//       const weatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
-//       const keyResponse = await fetch(cityKeyUrl + cityKeyQuery)
-//       const data = await keyResponse.json()
-//       const key = data[0].Key
-//       const weatherResponse = await fetch(weatherUrl + `${351409}?apikey=1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB&details=true`)
-//       const weather = await weatherResponse.json()
-//       this.setState({
-//             weather: {
-//               weatherText: weather[0].WeatherText,
-//               weatherIcon: weather[0].WeatherIcon,
-//               hasPrecip: weather[0].HasPrecipitation,
-//               temp: weather[0].Temperature.Imperial.Value,
-//               phrase: weather[0].RealFeelTemperature.Imperial.Phrase,
-//               windChill: weather[0].WindChillTemperature.Imperial.Value,
-//             },
-//           });
-//   } catch(err) {
-//     console.log(err)
-//   }
-// }
+  getTestWeather = () => {
+    this.setState({
+      weather: {
+        weatherText: weather[0].WeatherText,
+        weatherIcon: weather[0].WeatherIcon,
+        hasPrecip: weather[0].HasPrecipitation,
+        temp: weather[0].Temperature.Imperial.Value,
+        phrase: weather[0].RealFeelTemperature.Imperial.Phrase,
+        windChill: weather[0].WindChillTemperature.Imperial.Value,
+      },
+    });
+  }
+
+getWeather = async () => {
+  try {
+      const cityKeyUrl = 'http://dataservice.accuweather.com/locations/v1/cities/search'
+      const cityKeyQuery = `?apikey=1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB&q=${this.state.city.name}&details=true`
+      const weatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
+      const keyResponse = await fetch(cityKeyUrl + cityKeyQuery)
+      const data = await keyResponse.json()
+      const key = data[0].Key
+      const weatherResponse = await fetch(weatherUrl + `${351409}?apikey=1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB&details=true`)
+      const weather = await weatherResponse.json()
+      this.setState({
+            weather: {
+              weatherText: weather[0].WeatherText,
+              weatherIcon: weather[0].WeatherIcon,
+              hasPrecip: weather[0].HasPrecipitation,
+              temp: weather[0].Temperature.Imperial.Value,
+              phrase: weather[0].RealFeelTemperature.Imperial.Phrase,
+              windChill: weather[0].WindChillTemperature.Imperial.Value,
+            },
+          });
+  } catch(err) {
+    console.log(err)
+  }
+}
 
   componentDidMount = () => {
     // this.getWeather()
     // this.getTestWeather()
   };
   
-  // getTestWeather = () => {
-  //   this.setState({
-  //     weather: {
-  //       weatherText: weather[0].WeatherText,
-  //       weatherIcon: weather[0].WeatherIcon,
-  //       hasPrecip: weather[0].HasPrecipitation,
-  //       temp: weather[0].Temperature.Imperial.Value,
-  //       phrase: weather[0].RealFeelTemperature.Imperial.Phrase,
-  //       windChill: weather[0].WindChillTemperature.Imperial.Value,
-  //     },
-  //   });
-  // }
+  
   
   addRide = (newRide) => {
     this.setState({ allRides: [...this.state.allRides, newRide] });
