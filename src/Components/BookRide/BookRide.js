@@ -58,7 +58,10 @@ class BookRide extends Component {
 saveRide = e => {
     e.preventDefault();
     const { addRide } = this.props
-    const newRide = { ...this.state.ride }
+    const newRide = { 
+        id: Date.now(),
+        ...this.state.ride 
+    }
     addRide(newRide);
     this.clearInputs();
 };

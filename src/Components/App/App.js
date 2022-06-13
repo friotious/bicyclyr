@@ -15,37 +15,38 @@ class App extends Component {
         name: "Seattle",
         key: null,
       },
-      weather: weather,
-      allRides: null,
+      weather: {},
+      allRides: userData,
       apiKey: "1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB",
     };
   }
 
 
- refactor = (data) => {
-    const result = data.map(ride => {
-        return {
-            date: ride.date,
-            miles: ride.miles,
-            diffMult: ride.diffMult,
-            points: ride.points,
-            rideWeather: {
-                weatherText: ride.rideWeather.WeatherText,
-                weatherIcon: ride.rideWeather.WeatherIcon,
-                hasPrecip: ride.rideWeather.HasPrecipitation,
-                temp: ride.rideWeather.Temperature.Imperial.Value,
-                phrase: ride.rideWeather.RealFeelTemperature.Imperial.Phrase,
-                windChill: ride.rideWeather.WindChillTemperature.Imperial.Value,
-            }
-        }
-    })
-    console.log(result)
-    this.setState({ allRides: result})
-}
+//  refactor = (data) => {
+//     const result = data.map(ride => {
+//         return {
+//             date: ride.date,
+//             miles: ride.miles,
+//             diffMult: ride.diffMult,
+//             points: ride.points,
+//             rideWeather: {
+//                 weatherText: ride.rideWeather.WeatherText,
+//                 weatherIcon: ride.rideWeather.WeatherIcon,
+//                 hasPrecip: ride.rideWeather.HasPrecipitation,
+//                 temp: ride.rideWeather.Temperature.Imperial.Value,
+//                 phrase: ride.rideWeather.RealFeelTemperature.Imperial.Phrase,
+//                 windChill: ride.rideWeather.WindChillTemperature.Imperial.Value,
+//             }
+//         }
+//     })
+//     console.log(result, 'result')
+//     this.setState({ allRides: [...result]})
+// }
 
   componentDidMount = () => {
-    this.refactor(userData)
+    // this.refactor(userData)
     this.getTestWeather()
+    console.log(this.state.allRides, 'allrides')
   };
   
   getTestWeather = () => {
