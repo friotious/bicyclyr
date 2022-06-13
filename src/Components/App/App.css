@@ -15,6 +15,7 @@
    align-items: center;
     height: 50vh;
     width: 50vw;
+    background-color: #E5E4D9;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15) inset;
 
   }
@@ -46,6 +47,7 @@
     justify-content: center;
     height: 50vh;
     width: 50vw;
+    background-color: #E5E4D9;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15) inset;
   }
 
@@ -68,6 +70,7 @@
     justify-content: center;
     height: 50vh;
     width: 50vw;
+    background-color: #E5E4D9;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15) inset;
   }
 
@@ -79,9 +82,7 @@
 strong {
   color: rgb(53,49,46);
 }
-.links {
-  background-color: #E5E4D9;
-}
+
 
 
 

@@ -11,14 +11,13 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      city: {
-        name: "Seattle",
-        key: '',
-      },
+      cityName: "Seattle",
       weather: weather[0],
       allRides: userData
     };
   }
+
+  ////  <<<------TEST DATA UNTIL API TURNS ON ------>>>   /////
 
   getTestWeather = () => {
     this.setState({
@@ -33,43 +32,47 @@ class App extends Component {
     });
   }
 
-getWeather = async () => {
-  try {
-      const cityKeyUrl = 'http://dataservice.accuweather.com/locations/v1/cities/search'
-      const cityKeyQuery = `?apikey=1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB&q=${this.state.city.name}&details=true`
-      const weatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
-      const keyResponse = await fetch(cityKeyUrl + cityKeyQuery)
-      const data = await keyResponse.json()
-      const key = data[0].Key
-      const weatherResponse = await fetch(weatherUrl + `${351409}?apikey=1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB&details=true`)
-      const weather = await weatherResponse.json()
-      this.setState({
-            weather: {
-              weatherText: weather[0].WeatherText,
-              weatherIcon: weather[0].WeatherIcon,
-              hasPrecip: weather[0].HasPrecipitation,
-              temp: weather[0].Temperature.Imperial.Value,
-              phrase: weather[0].RealFeelTemperature.Imperial.Phrase,
-              windChill: weather[0].WindChillTemperature.Imperial.Value,
-            },
-          });
-  } catch(err) {
-    console.log(err)
-  }
-}
 
+////  <<<----------- ORIGINAL API CALL - 50 GETS PER DAY ------>>> //////
+//
+// getWeather = async () => {
+//   try {
+//       const apiKey = '1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB'
+//       const cityKeyUrl = 'http://dataservice.accuweather.com/locations/v1/cities/search'
+//       const cityKeyQuery = `?apikey=${apiKey}&q=${this.state.cityName}&details=true`
+//       const weatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
+//       const keyResponse = await fetch(cityKeyUrl + cityKeyQuery)
+//       const data = await keyResponse.json()
+//       const key = data[0].Key
+//       const weatherResponse = await fetch(weatherUrl + `${key}?apikey=${apiKey}&details=true`)
+//       const weather = await weatherResponse.json()
+//       this.setState({
+//             weather: {
+//               weatherText: weather[0].WeatherText,
+//               weatherIcon: weather[0].WeatherIcon,
+//               hasPrecip: weather[0].HasPrecipitation,
+//               temp: weather[0].Temperature.Imperial.Value,
+//               phrase: weather[0].RealFeelTemperature.Imperial.Phrase,
+//               windChill: weather[0].WindChillTemperature.Imperial.Value,
+//             },
+//           });
+//   } catch(err) {
+//     console.log(err)
+//   }
+// }
+
+//// <<< ------ TOGGLE getWeather ON and getTestWeather OFF when API is available ----- >>>>>  ////
   componentDidMount = () => {
     // this.getWeather()
-    // this.getTestWeather()
+    this.getTestWeather()
   };
-  
-  
   
   addRide = (newRide) => {
     this.setState({ allRides: [...this.state.allRides, newRide] });
   }
   
   render() {
+    const { weather, allRides } = this.state
     return (
       <main className="App">
         <Nav />
@@ -79,16 +82,14 @@ getWeather = async () => {
             exact
             path="/book-ride"
             render={() => (
-              <BookRide addRide={this.addRide} weather={this.state.weather} />
+              <BookRide addRide={this.addRide} weather={weather} />
             )}
           />
-
           <Route
             exact
             path="/all-rides"
-            render={() => <AllRides allRides={this.state.allRides} />}
+            render={() => <AllRides allRides={allRides} />}
           />
-
           <Route
             exact
             path="/"

@@ -5047,10 +5047,9 @@ function refactor(data){
             }
         }
     })
-    console.log(result, 'result!!!')
    return result
 }
 userData = refactor(olduserData)
-console.log(userData, 'testies')
+
 export default userData
 
