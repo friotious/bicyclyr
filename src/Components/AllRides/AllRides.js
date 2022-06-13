@@ -8,9 +8,6 @@ function AllRides({ allRides }) {
   });
 
   const displayPoints = () => {
-    console.log(allRides, 'allrides')
-    console.log(allRides[0], 'allridesID')
-
     const points = allRides.reduce((acc, ride) => {
       acc += ride.points;
       return acc;

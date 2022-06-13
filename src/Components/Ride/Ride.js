@@ -11,7 +11,7 @@ const Ride = ({ ride }) => {
       <p>{`${weatherText.toLowerCase()} and ${phrase.toLowerCase()}`}</p>
       <img
         className="weather-img"
-        src={require(`../../weather-icons/${weatherIcon}.png`)}
+        src={require(`../../assets/weather-icons/${weatherIcon}.png`)}
         alt={`$rideWeather.weatherText}`}
       />
       <p>Temp: {temp}</p>
