@@ -138,8 +138,8 @@ export default BookRide;
 
 BookRide.propTypes = {
     weatherText: PropTypes.string.isRequired,
-    weatherIcon: PropTypes.img.isRequired,
-    hasPrecip: PropTypes.boolean.isRequired,
+    weatherIcon: PropTypes.node.isRequired,
+    hasPrecip: PropTypes.bool.isRequired,
     temp: PropTypes.number.isRequired,
     phrase: PropTypes.string.isRequired,
     windChill: PropTypes.number.isRequired
