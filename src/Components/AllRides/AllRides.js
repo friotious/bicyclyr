@@ -1,6 +1,7 @@
 import React from "react";
 import "./AllRides.css";
 import Ride from "../Ride/Ride";
+import PropTypes from 'prop-types';
 
 function AllRides({ allRides }) {
   const displayAllRides = allRides.map((ride) => {
@@ -29,3 +30,19 @@ function AllRides({ allRides }) {
 }
 
 export default AllRides;
+
+AllRides.propTypes = [{
+    id: PropTypes.number.isRequired,
+    diffMult: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
+    points: PropTypes.number.isRequired,
+    rideWeather: {
+        weatherText: PropTypes.string.isRequired,
+        weatherIcon: PropTypes.img.isRequired,
+        hasPrecip: PropTypes.boolean.isRequired,
+        temp: PropTypes.number.isRequired,
+        phrase: PropTypes.string.isRequired,
+        windChill: PropTypes.number.isRequired
+    }
+}]
+
