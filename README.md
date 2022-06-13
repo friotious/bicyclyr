@@ -1,70 +1,63 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Bicyclyr - Showcase Project
 
-## Available Scripts
 
-In the project directory, you can run:
+## Intro
 
-### `npm start`
+Bicyclyr is weatherapp meets motivational fitnessapp, bicycle style.  Your ride logging is gamified to motivate you, rain or shine, to get on your bike!  By earning more points when the weather is inclement you will impress your frens, impress yourself, impress your spouse!
+As a user you can view todays weather, log a ride w/ mileage and points earned by the daily difficulty multiple.  Your rides are saved with points, mileage, and weather data, to be viewed at your leisure.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Learning Goals / Tech
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Continue developing skills toward mastery of the following tech:
 
-### `npm test`
+  * React
+  * React Router
+  * Async JS
+  * E2E testing using Cypress
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- A user can book a ride or view all previous rides
+- When a user decides to book a ride they are shown the current weather and daily multiple. They can then input the amount of miles to ride and the amount of points that will be earned will update
+- The user can then save/book this ride, view this and all previous rides in the all-rides page, as well as see an updated number of total points earned thus far
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Possible Future Extensions
+- Improve Cypress testing
+- Add error handling for URL
+- Add city input functionality on homepage or so the user can input what city they are riding in
+- The ability to set weekly/monthly point goals
+- The ride data displayed in a graph to get an idea of averages improvement
+- Login / multiple users
+- Continue CSS styling for responsiveness
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Set Up
+1. Fork repo from github -  [GitHub Repo](https://github.com/friotious/bicyclyr)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. In your terminal: `git clone git@github.com:friotious/bicyclyr.git`
+3.  `cd bicyclyr` to move into the root directory.
+4. Run `npm install` to install necessary dependencies.
+5. Run `npm start`
+6. From directory, open in your preferred code editor. Example - VScode: `code .`
+6. Go to URL shown in terminal, usually `http://localhost:3000/`
+7. Run e2e Cypress tests with `npm run cypress`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Project Spec
 
-## Learn More
+- [Project Spec](https://frontend.turing.edu/projects/module-3/showcase.html)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project GitHub Repo
 
-### Code Splitting
+- [GitHub Repo](https://github.com/friotious/bicyclyr)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Deploy Link
 
-### Analyzing the Bundle Size
+- [Deployed here](https://stark-escarpment-24764.herokuapp.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Developed by
+- Rio Foster - [GitHub](https://github.com/friotious) - [LinkedIn](https://www.linkedin.com/in/rio-foster-159a37228/)
