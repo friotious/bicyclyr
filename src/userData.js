@@ -1,5 +1,5 @@
-const userData = [
-    {   
+const olduserData = [
+    {   id: 1,
         date: '1/11/2022',   
         miles: 6,
         diffMult: 1.5,
@@ -386,7 +386,7 @@ const userData = [
         }
     },
 
-    {   
+    {   id: 2,
         date: '1/22/2022',   
         miles: 8,
         diffMult: 1.5,
@@ -772,7 +772,7 @@ const userData = [
             "Link": "http://www.accuweather.com/en/us/platte-city-mo/64079/current-weather/334125?lang=en-us"
         }
     },
-    {   
+    {   id: 3,
         date: '3/01/2022',   
         miles: 10,
         diffMult: 1.3,
@@ -1158,7 +1158,7 @@ const userData = [
             "Link": "http://www.accuweather.com/en/fi/vieki/134125/current-weather/134125?lang=en-us"
         }
     },
-    {   
+    {   id: 4,
         date: '4/15/2022',   
         miles: 11,
         diffMult: 1,
@@ -1545,7 +1545,7 @@ const userData = [
         }
     },
 
-    {   
+    {   id: 5,
         date: '5/17/2022',   
         miles: 12,
         diffMult: 1,
@@ -1932,7 +1932,7 @@ const userData = [
         }
     },
 
-    {   
+    {   id: 6,
         date: '6/1/2022',   
         miles: 8,
         diffMult: 1.5,
@@ -2319,7 +2319,7 @@ const userData = [
         }
     },
 
-    {   
+    {   id: 7,
         date: '1/12/2022',   
         miles: 6,
         diffMult: 1.5,
@@ -2706,7 +2706,7 @@ const userData = [
         }
     },
 
-    {   
+    {   id: 8,
         date: '1/23/2022',   
         miles: 8,
         diffMult: 1.5,
@@ -3092,7 +3092,7 @@ const userData = [
             "Link": "http://www.accuweather.com/en/us/platte-city-mo/64079/current-weather/334125?lang=en-us"
         }
     },
-    {   
+    {   id: 9,
         date: '3/05/2022',   
         miles: 10,
         diffMult: 1.3,
@@ -3478,7 +3478,7 @@ const userData = [
             "Link": "http://www.accuweather.com/en/fi/vieki/134125/current-weather/134125?lang=en-us"
         }
     },
-    {   
+    {   id: 10,
         date: '4/17/2022',   
         miles: 11,
         diffMult: 1,
@@ -3865,7 +3865,7 @@ const userData = [
         }
     },
 
-    {   
+    {   id: 11,
         date: '5/19/2022',   
         miles: 12,
         diffMult: 1,
@@ -4252,7 +4252,7 @@ const userData = [
         }
     },
 
-    {   
+    {    id: 12,
         date: '6/8/2022',   
         miles: 8,
         diffMult: 1.5,
@@ -4640,6 +4640,7 @@ const userData = [
     },
 
     {
+    id: 13,
     date: '6/9/2022',   
     miles: 8,
     diffMult: 1.5,
@@ -5026,6 +5027,30 @@ const userData = [
     }
  } 
 ]
+
+let userData
+function refactor(data){
+    const result = data.map(ride => {
+        return {
+            id: ride.id,
+            date: ride.date,
+            miles: ride.miles,
+            diffMult: ride.diffMult,
+            points: ride.points,
+            rideWeather: {
+                weatherText: ride.rideWeather.WeatherText,
+                weatherIcon: ride.rideWeather.WeatherIcon,
+                hasPrecip: ride.rideWeather.HasPrecipitation,
+                temp: ride.rideWeather.Temperature.Imperial.Value,
+                phrase: ride.rideWeather.RealFeelTemperature.Imperial.Phrase,
+                windChill: ride.rideWeather.WindChillTemperature.Imperial.Value,
+            }
+        }
+    })
+    console.log(result, 'result!!!')
+   return result
+}
+userData = refactor(olduserData)
 
 export default userData
 
