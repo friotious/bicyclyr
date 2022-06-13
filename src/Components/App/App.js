@@ -4,8 +4,8 @@ import { Route, Switch, Link, NavLink } from "react-router-dom";
 import BookRide from "../BookRide/BookRide";
 import AllRides from "../AllRides/AllRides";
 import Nav from "../Nav/Nav";
-import userData from "../../userData";
-import weather from "./data-test";
+ import userData from "../../assets/userData";
+ import weather from "../../assets/data-test";
 
 class App extends Component {
   constructor() {
@@ -13,54 +13,55 @@ class App extends Component {
     this.state = {
       city: {
         name: "Seattle",
-        key: null,
+        key: '',
       },
-      weather: {},
-      allRides: userData,
-      apiKey: "1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB",
+      weather: weather[0],
+      allRides: userData
     };
   }
 
-
-//  refactor = (data) => {
-//     const result = data.map(ride => {
-//         return {
-//             date: ride.date,
-//             miles: ride.miles,
-//             diffMult: ride.diffMult,
-//             points: ride.points,
-//             rideWeather: {
-//                 weatherText: ride.rideWeather.WeatherText,
-//                 weatherIcon: ride.rideWeather.WeatherIcon,
-//                 hasPrecip: ride.rideWeather.HasPrecipitation,
-//                 temp: ride.rideWeather.Temperature.Imperial.Value,
-//                 phrase: ride.rideWeather.RealFeelTemperature.Imperial.Phrase,
-//                 windChill: ride.rideWeather.WindChillTemperature.Imperial.Value,
-//             }
-//         }
-//     })
-//     console.log(result, 'result')
-//     this.setState({ allRides: [...result]})
+// getWeather = async () => {
+//   try {
+//       const cityKeyUrl = 'http://dataservice.accuweather.com/locations/v1/cities/search'
+//       const cityKeyQuery = `?apikey=1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB&q=${this.state.city.name}&details=true`
+//       const weatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
+//       const keyResponse = await fetch(cityKeyUrl + cityKeyQuery)
+//       const data = await keyResponse.json()
+//       const key = data[0].Key
+//       const weatherResponse = await fetch(weatherUrl + `${351409}?apikey=1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB&details=true`)
+//       const weather = await weatherResponse.json()
+//       this.setState({
+//             weather: {
+//               weatherText: weather[0].WeatherText,
+//               weatherIcon: weather[0].WeatherIcon,
+//               hasPrecip: weather[0].HasPrecipitation,
+//               temp: weather[0].Temperature.Imperial.Value,
+//               phrase: weather[0].RealFeelTemperature.Imperial.Phrase,
+//               windChill: weather[0].WindChillTemperature.Imperial.Value,
+//             },
+//           });
+//   } catch(err) {
+//     console.log(err)
+//   }
 // }
 
   componentDidMount = () => {
-    // this.refactor(userData)
-    this.getTestWeather()
-    console.log(this.state.allRides, 'allrides')
+    // this.getWeather()
+    // this.getTestWeather()
   };
   
-  getTestWeather = () => {
-    this.setState({
-      weather: {
-        weatherText: weather[0].WeatherText,
-        weatherIcon: weather[0].WeatherIcon,
-        hasPrecip: weather[0].HasPrecipitation,
-        temp: weather[0].Temperature.Imperial.Value,
-        phrase: weather[0].RealFeelTemperature.Imperial.Phrase,
-        windChill: weather[0].WindChillTemperature.Imperial.Value,
-      },
-    });
-  }
+  // getTestWeather = () => {
+  //   this.setState({
+  //     weather: {
+  //       weatherText: weather[0].WeatherText,
+  //       weatherIcon: weather[0].WeatherIcon,
+  //       hasPrecip: weather[0].HasPrecipitation,
+  //       temp: weather[0].Temperature.Imperial.Value,
+  //       phrase: weather[0].RealFeelTemperature.Imperial.Phrase,
+  //       windChill: weather[0].WindChillTemperature.Imperial.Value,
+  //     },
+  //   });
+  // }
   
   addRide = (newRide) => {
     this.setState({ allRides: [...this.state.allRides, newRide] });
@@ -91,14 +92,15 @@ class App extends Component {
             path="/"
             render={() => {
               return (
-                <div className="homepage-main">
+                <div className="homepage-main" test-cy='homepage-main'>
                   <span className="homepage-box links">
                     <NavLink
                       style={{ textDecoration: "none" }}
                       to="/book-ride"
                       id="book-ride"
+                      test-cy='book-ride-main'
                     >
-                      Book Ride
+                      <strong>Book Ride</strong>
                     </NavLink>
                   </span>
 
@@ -107,8 +109,9 @@ class App extends Component {
                       style={{ textDecoration: "none" }}
                       to="/all-rides"
                       id="all-rides"
+                      test-cy='all-rides-main'
                     >
-                      All Rides
+                      <strong>All Rides</strong>
                     </NavLink>
                   </span>
 
@@ -126,21 +129,4 @@ class App extends Component {
 
 export default App;
 
-// getWeather = async () => {
-//   try {
-//       const apikey = '1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB'
-//       const cityKeyUrl = 'http://dataservice.accuweather.com/locations/v1/cities/search'
-//       const cityKeyQuery = `?apikey=${apikey}&q=${this.state.city.name}&details=true`
-//       const weatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
-//       const keyResponse = await fetch(cityKeyUrl + cityKeyQuery)
-//       const data = await keyResponse.json()
-//       const key = data[0].Key
 
-//       const weatherResponse = await fetch(weatherUrl + `${key}?apikey=${this.state.apiKey}&details=true`)
-//       const weather = await weatherResponse.json()
-//       this.setState({ weather: weather[0]})
-
-//   } catch(err) {
-//     console.log(err)
-//   }
-// }

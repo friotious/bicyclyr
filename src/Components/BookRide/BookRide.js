@@ -9,7 +9,7 @@ class BookRide extends Component {
       ride: {
         date: new Date().toLocaleDateString(),
         miles: "",
-        diffMult: 0,
+        diffMult: 1,
         points: '',
         rideWeather: this.props.weather,
       },
@@ -17,41 +17,34 @@ class BookRide extends Component {
   }
 
   getDiffMult = () => {
+      let num = 1;
     const { temp, windChill, hasPrecip } = this.props.weather;
     if (this.state.ride.diffMult === 0) {
-        let num = 1;
         if (hasPrecip) {num += 0.2;}
-        if (temp < 45 && temp < 32) {num += 0.1;}
+        if (temp < 45 && temp > 32) {num += 0.1;}
         if (temp <= 32) {num += 0.3;}
         if (temp < 85) {num += 0.1;}
-        if (windChill < 32) {num += 0.1;}
+        if (windChill < 45) {num += 0.1;}
         if (temp > 45 && temp < 84 && !hasPrecip) {num -= 0.2;}
+        console.log(num.toFixed(1), 'num')
         this.setState({ ride: {
             ...this.state.ride,
             diffMult: num.toFixed(1)
         }})
     } else {
-        return
+        return 
     }
   }
 
 
-
-  // const whatINeed = {
-  //     rideWeather.WeatherText = 'cloudy or rainy or whatever...',
-  //     rideWeather.HasPrecipitation = 'boolean',
-
-  //     rideWeather.Temperature.Imperial.Value = 25,
-  //     rideWeather.RealFeelTemperature.Imperial.Phrase = 'pleasant',
-  //     rideWeather.Wind.Speed.Imperial.Value = 3.6,
-  //     rideWeather.WindChillTemperature.Imperial.Value = 66,
-
-  // if rideWeather.HasPrecipitation + .2
-  //      if
-
-  
   componentDidMount = () => {
    this.getDiffMult()
+   console.log(this.state.ride.points, 'points')
+}
+
+componentDidUpdate = () => {
+   console.log(this.state.ride.points, 'points')
+
 }
 
 
@@ -76,22 +69,6 @@ clearInputs = () => {
     });
 };
 
-    // setDiffAndPoints = () => {
-    //   if (!this.state.ride.diffMult) {
-    //       this.setState({
-    //         ride: {
-    //             ...this.state.ride,
-    //             diffMult: this.getDiffMult(),
-    //             points: this.getPoints()
-    //         }})
-    //     } else {
-    //         return
-    //     }
-    // }
-
-    // getPoints = () => {
-    // }
-       
   handleMilesChange = (e) => {
     this.setState({
       ride: {
@@ -112,33 +89,39 @@ clearInputs = () => {
   }
 
   render() {
+    const { ride: { date, miles, diffMult, points, rideWeather } } = this.state
     return (
       <div className="BookRide">
         <div className="top-book-ride">
-          <div className="form-box">
+          <div className="form-box" test-cy='form-box'>
             <h3>Book your Ride</h3>
-            <p>Todays Temp: {this.state.ride.rideWeather.temp} F</p>
-            <p>Todays Multiple: {this.state.ride.diffMult}</p>
-            <p>points you will make!: {this.state.ride.points}</p>
+            <p>Todays Temp: {rideWeather.temp} F</p>
+            <p>Todays Multiple: {diffMult}</p>
+            <p test-cy='points'>points you will make: {points}</p>
 
             <form className="form">
               <input
+                test-cy="input-miles"
+                id='test'
                 type="text"
                 placeholder="Miles you will ride"
                 name="miles"
-                value={this.state.ride.miles}
+                value={miles}
                 onChange={(e) => this.handleMilesChange(e)}
               />
               <input
-                type="text"
-                placeholder={new Date().toLocaleDateString()}
+                type="date"
+                placeholder={new Date().toLocaleDateString()}qc
                 name="date"
-                value={this.state.ride.date}
+                value={date}
                 onChange={(e) => this.handleDateChange(e)}
               />
 
             </form>
-            <button className='save-ride-button'onClick={event => this.saveRide(event)}>save ride</button>
+            <button 
+                className='save-ride-button'
+                onClick={event => this.saveRide(event)}
+                test-cy='save-ride-button'>save ride</button>
           </div>
         </div>
         <div className="bottom-book-ride"></div>

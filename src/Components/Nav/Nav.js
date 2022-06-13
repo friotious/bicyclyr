@@ -6,15 +6,15 @@ const Nav = () => {
     return (
         <div className='nav'>
             <NavLink style={{ textDecoration: 'none' }} className='book-ride' to='/book-ride'>
-                <div className='book-ride-text'>book ride</div>
+                <div className='book-ride-text' test-cy="book-ride-nav">book ride</div>
             </NavLink>
 
             <NavLink style={{ textDecoration: 'none' }} className='home' to='/'>
-            <div className='header-home'> Bicyclyr </div>
+            <div className='header-home' test-cy="bicyclyr-nav">Bicyclyr</div>
             </NavLink>
 
             <NavLink style={{ textDecoration: 'none' }} className='all-rides' to='/all-rides'>
-            <div className='book-ride-text'>all rides</div>
+            <div className='book-ride-text' test-cy="all-rides-nav">all rides</div>
             </NavLink>
         </div>
     )
