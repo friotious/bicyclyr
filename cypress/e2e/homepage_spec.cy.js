@@ -9,6 +9,8 @@ describe('home page', () => {
 
   it('should have a homepage', () => {
     cy.url().should('eq', 'http://localhost:3000/')
+    cy.get('[test-cy="homepage-main"]')
+    .children().should('have.length', 4)
   })
 
   it('should have a navbar with the name "bicyclyr" links to book ride and all rides', () => {
@@ -19,12 +21,19 @@ describe('home page', () => {
     cy.url().should('eq', 'http://localhost:3000/all-rides')
     cy.get('[test-cy="bicyclyr-nav"]').click()
     cy.url().should('eq', 'http://localhost:3000/')
-    cy.get('[test-cy="bicyclyr-nav"]').click()
+    cy.get('[test-cy="book-ride-nav"]').click()
     cy.url().should('eq', 'http://localhost:3000/book-ride')
   })
 
-  it('should also have larger links for book ride and all rides in the main page area', () => {
-    cy.get()
+  it('should also have links for book ride and all rides in the main page area', () => {
+      cy.get('[test-cy="book-ride-main"]').should('have.text', 'Book Ride').click()
+      cy.url().should('eq', 'http://localhost:3000/book-ride')
+      cy.get('[test-cy="bicyclyr-nav"]').click()
+      cy.get('[test-cy="all-rides-main"]').should('have.text', 'All Rides').click()
+      cy.url().should('eq', 'http://localhost:3000/all-rides')   
+  })
 
+  it('should show an error if the api has failed to fetch', () => {
+    cy.url().should('eq', 'http://localhost:3000/')
   })
 })

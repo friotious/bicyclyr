@@ -92,15 +92,15 @@ getWeather = async () => {
             path="/"
             render={() => {
               return (
-                <div className="homepage-main">
+                <div className="homepage-main" test-cy='homepage-main'>
                   <span className="homepage-box links">
                     <NavLink
                       style={{ textDecoration: "none" }}
                       to="/book-ride"
                       id="book-ride"
-                      data-cy
+                      test-cy='book-ride-main'
                     >
-                      Book Ride
+                      <strong>Book Ride</strong>
                     </NavLink>
                   </span>
 
@@ -109,8 +109,9 @@ getWeather = async () => {
                       style={{ textDecoration: "none" }}
                       to="/all-rides"
                       id="all-rides"
+                      test-cy='all-rides-main'
                     >
-                      All Rides
+                      <strong>All Rides</strong>
                     </NavLink>
                   </span>
 
