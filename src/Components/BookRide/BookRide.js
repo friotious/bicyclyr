@@ -36,20 +36,6 @@ class BookRide extends Component {
   }
 
 
-
-  // const whatINeed = {
-  //     rideWeather.WeatherText = 'cloudy or rainy or whatever...',
-  //     rideWeather.HasPrecipitation = 'boolean',
-
-  //     rideWeather.Temperature.Imperial.Value = 25,
-  //     rideWeather.RealFeelTemperature.Imperial.Phrase = 'pleasant',
-  //     rideWeather.Wind.Speed.Imperial.Value = 3.6,
-  //     rideWeather.WindChillTemperature.Imperial.Value = 66,
-
-  // if rideWeather.HasPrecipitation + .2
-  //      if
-
-  
   componentDidMount = () => {
    this.getDiffMult()
 }
@@ -76,22 +62,6 @@ clearInputs = () => {
     });
 };
 
-    // setDiffAndPoints = () => {
-    //   if (!this.state.ride.diffMult) {
-    //       this.setState({
-    //         ride: {
-    //             ...this.state.ride,
-    //             diffMult: this.getDiffMult(),
-    //             points: this.getPoints()
-    //         }})
-    //     } else {
-    //         return
-    //     }
-    // }
-
-    // getPoints = () => {
-    // }
-       
   handleMilesChange = (e) => {
     this.setState({
       ride: {
@@ -112,28 +82,29 @@ clearInputs = () => {
   }
 
   render() {
+    const { ride: { date, miles, diffMult, points, rideWeather } } = this.state
     return (
       <div className="BookRide">
         <div className="top-book-ride">
-          <div className="form-box">
+          <div className="form-box" test-cy='form-box'>
             <h3>Book your Ride</h3>
-            <p>Todays Temp: {this.state.ride.rideWeather.temp} F</p>
-            <p>Todays Multiple: {this.state.ride.diffMult}</p>
-            <p>points you will make!: {this.state.ride.points}</p>
+            <p>Todays Temp: {rideWeather.temp} F</p>
+            <p>Todays Multiple: {diffMult}</p>
+            <p>points you will make: {points}</p>
 
             <form className="form">
               <input
                 type="text"
                 placeholder="Miles you will ride"
                 name="miles"
-                value={this.state.ride.miles}
+                value={miles}
                 onChange={(e) => this.handleMilesChange(e)}
               />
               <input
                 type="text"
                 placeholder={new Date().toLocaleDateString()}
                 name="date"
-                value={this.state.ride.date}
+                value={date}
                 onChange={(e) => this.handleDateChange(e)}
               />
 
