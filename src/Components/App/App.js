@@ -98,6 +98,7 @@ getWeather = async () => {
                       style={{ textDecoration: "none" }}
                       to="/book-ride"
                       id="book-ride"
+                      data-cy
                     >
                       Book Ride
                     </NavLink>
