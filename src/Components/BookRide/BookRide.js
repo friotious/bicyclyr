@@ -9,7 +9,7 @@ class BookRide extends Component {
       ride: {
         date: new Date().toLocaleDateString(),
         miles: "",
-        diffMult: 0,
+        diffMult: 1,
         points: '',
         rideWeather: this.props.weather,
       },
@@ -17,27 +17,34 @@ class BookRide extends Component {
   }
 
   getDiffMult = () => {
+      let num = 1;
     const { temp, windChill, hasPrecip } = this.props.weather;
     if (this.state.ride.diffMult === 0) {
-        let num = 1;
         if (hasPrecip) {num += 0.2;}
-        if (temp < 45 && temp < 32) {num += 0.1;}
+        if (temp < 45 && temp > 32) {num += 0.1;}
         if (temp <= 32) {num += 0.3;}
         if (temp < 85) {num += 0.1;}
-        if (windChill < 32) {num += 0.1;}
+        if (windChill < 45) {num += 0.1;}
         if (temp > 45 && temp < 84 && !hasPrecip) {num -= 0.2;}
+        console.log(num.toFixed(1), 'num')
         this.setState({ ride: {
             ...this.state.ride,
             diffMult: num.toFixed(1)
         }})
     } else {
-        return
+        return 
     }
   }
 
 
   componentDidMount = () => {
    this.getDiffMult()
+   console.log(this.state.ride.points, 'points')
+}
+
+componentDidUpdate = () => {
+   console.log(this.state.ride.points, 'points')
+
 }
 
 
@@ -102,13 +109,13 @@ clearInputs = () => {
                 value={miles}
                 onChange={(e) => this.handleMilesChange(e)}
               />
-              {/* <input
+              <input
                 type="date"
                 placeholder={new Date().toLocaleDateString()}qc
                 name="date"
                 value={date}
                 onChange={(e) => this.handleDateChange(e)}
-              /> */}
+              />
 
             </form>
             <button 

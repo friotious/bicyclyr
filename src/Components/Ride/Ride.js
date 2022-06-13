@@ -1,18 +1,23 @@
 import React from "react";
 import "./Ride.css";
 
-const Ride = ({ ride }) => {
+const Ride = (props) => {
+  const { date, points, rideWeather: { weatherText, phrase, weatherIcon, temp } } = props.ride
+  console.log(weatherText, 'wt')
+  console.log(phrase, 'phrase')
+  let wt = weatherText.toLowerCase()
+  let ph = phrase.toLowerCase()
   return (
     <div className="Ride">
-      <h3>date: {ride.date}</h3>
-      <h4>points: {ride.points}</h4>
-      <p>{`${ride.rideWeather.weatherText.toLowerCase()} and ${ride.rideWeather.phrase.toLowerCase()}`}</p>
+      <h3>date: {date}</h3>
+      <h4>points: {points}</h4>
+      <p>{`${wt} and ${ph}`}</p>
       <img
         className="weather-img"
-        src={require(`../../assets/weather-icons/${ride.rideWeather.weatherIcon}.png`)}
-        alt={`${ride.rideWeather.weatherText}`}
+        src={require(`../../assets/weather-icons/${weatherIcon}.png`)}
+        alt={`${weatherText}`}
       />
-      <p>Temp: {ride.rideWeather.temp}</p>
+      <p>Temp: {temp}</p>
     </div>
   );
 };

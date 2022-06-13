@@ -3,7 +3,7 @@ describe('home page', () => {
  
   beforeEach(() => {
         cy.intercept('GET', 'http://dataservice.accuweather.com/currentconditions/v1/351409?apikey=1sASGwIeUkRo5cXX5Lr4uJLFtMWdTGZB&details=true', 
-        { fixtures: 'weather.json' })
+        { statusCode: 200, fixtures: 'weather.json' })
         cy.visit('http://localhost:3000/book-ride')
   })
 
@@ -19,22 +19,19 @@ describe('home page', () => {
 
   it('should be able to input miles and see the points you will make change', () => {
     cy.get('#test')
-    .type('10')
-
-    // .type('10').should('have.value', '10')
-    // .get('[test-cy="points"]').should('contain', 'points you will make: ')
+    .type('10').should('have.value', '10')
+    .get('[test-cy="points"]').should('contain', 'points you will make: ')
   })
 
-  // it('should store your ride when you click the save ride button and be viewable in allRides page', () => {
-   
-  //   cy.get('input[type="text"]')
-  //   .type(10)
-  //   // .get('[test-cy="input-miles"]').should('contains', '10')
-  //   cy.get('[test-cy="save-ride-button"]').click({force: true})
-  //   cy.get('[test-cy="all-rides-nav"]').click({force: true})
-  
-
-  // })
+  it('should store your ride when you click the save ride button and be viewable in allRides page', () => {
+    cy.get('#test')
+    .type('1000').should('have.value', '1000')
+    .get('[test-cy="points"]').should("contain", "1000")
+    .get('[test-cy="save-ride-button"]').click()
+    .get('[test-cy="all-rides-nav"]').click()
+    .url().should('eq', 'http://localhost:3000/all-rides')
+    .should('contain', '1000')
+  })
 
 
 })
