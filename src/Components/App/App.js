@@ -4,7 +4,7 @@ import { Route, Switch, Link, NavLink } from "react-router-dom";
 import BookRide from "../BookRide/BookRide";
 import AllRides from "../AllRides/AllRides";
 import Nav from "../Nav/Nav";
-// import userData from "../../userData";
+ import userData from "../../assets/userData";
 // import weather from "../../assets/data-test";
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
         key: null,
       },
       weather: {},
-      allRides: []
+      allRides: userData
     };
   }
 

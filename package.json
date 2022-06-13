@@ -20,6 +20,11 @@
     "cypress": "./node_modules/.bin/cypress open",
     "cypress:open": "cypress open"
   },
+
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+  },
+  
   "eslintConfig": {
     "extends": [
       "react-app",

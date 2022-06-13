@@ -90,26 +90,31 @@ clearInputs = () => {
             <h3>Book your Ride</h3>
             <p>Todays Temp: {rideWeather.temp} F</p>
             <p>Todays Multiple: {diffMult}</p>
-            <p>points you will make: {points}</p>
+            <p test-cy='points'>points you will make: {points}</p>
 
             <form className="form">
               <input
+                test-cy="input-miles"
+                id='test'
                 type="text"
                 placeholder="Miles you will ride"
                 name="miles"
                 value={miles}
                 onChange={(e) => this.handleMilesChange(e)}
               />
-              <input
-                type="text"
-                placeholder={new Date().toLocaleDateString()}
+              {/* <input
+                type="date"
+                placeholder={new Date().toLocaleDateString()}qc
                 name="date"
                 value={date}
                 onChange={(e) => this.handleDateChange(e)}
-              />
+              /> */}
 
             </form>
-            <button className='save-ride-button'onClick={event => this.saveRide(event)}>save ride</button>
+            <button 
+                className='save-ride-button'
+                onClick={event => this.saveRide(event)}
+                test-cy='save-ride-button'>save ride</button>
           </div>
         </div>
         <div className="bottom-book-ride"></div>
