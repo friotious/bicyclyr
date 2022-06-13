@@ -14,7 +14,7 @@ const Nav = () => {
             </NavLink>
 
             <NavLink style={{ textDecoration: 'none' }} className='all-rides' to='/all-rides'>
-            <div className='book-ride-text' test-cy="all-rides-nav">all rides</div>
+            <div className='all-rides-text' test-cy="all-rides-nav">all rides</div>
             </NavLink>
         </div>
     )

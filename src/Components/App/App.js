@@ -93,7 +93,7 @@ class App extends Component {
             render={() => {
               return (
                 <div className="homepage-main" test-cy='homepage-main'>
-                  <span className="homepage-box links">
+                  <span className="homepage-main-top links">
                     <NavLink
                       style={{ textDecoration: "none" }}
                       to="/book-ride"
@@ -104,7 +104,7 @@ class App extends Component {
                     </NavLink>
                   </span>
 
-                  <span className="homepage-box links">
+                  <span className="homepage-main-top links">
                     <NavLink
                       style={{ textDecoration: "none" }}
                       to="/all-rides"
@@ -115,8 +115,8 @@ class App extends Component {
                     </NavLink>
                   </span>
 
-                  <span className="homepage-box"></span>
-                  <span className="homepage-box"></span>
+                  <span className="homepage-main-bottom"></span>
+                  <span className="homepage-main-bottom"></span>
                 </div>
               );
             }}
