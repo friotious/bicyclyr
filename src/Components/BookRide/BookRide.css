@@ -1,53 +1,186 @@
-.form {
-  color: rgb(53, 49, 46);
-  display: flex;
-  flex-direction: column;
-  /* flex-wrap: nowrap; */
-  justify-content: space-evenly;
-  /* align-items: stretch; */
-  /* align-content: stretch; */
+@media screen and (min-width: 999px) {
+  .bottom-book-ride {
+    height: 55vh;
+  }
+ 
+  .top-book-ride {
+    height: 45vh;
+    width: 100vw;
+    background-color: #e5e4d9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15) inset;
+  }
+
+  .form-box {
+    height: 80vh;
+    width: 240px;
+    background-color: #b8b7b0;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 1em;
+  }
+
+  .form {
+    color: rgb(53, 49, 46);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .save-ride-button {
+      width: 180px;
+      height: 30px;
+      border-radius: 5px;
+      font-size: 18px;
+  }
+
+  p {
+    margin: 8px;
+  }
+  
+  /* input {
+    margin: 20px;
+    height: 20px;
+  } */
+
+  input[type=text], select {
+    width: 90%;
+    padding: 8px 10px;
+    margin: 8px ;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
 }
 
-.bottom-book-ride,
+
+
+  @media screen and (max-width: 1001px) {
+    .bottom-book-ride {
+      height: 45vh;
+    }
+    .top-book-ride {
+      height: 55vh;
+      width: 100vw;
+    }
+    .top-book-ride {
+      background-color: #e5e4d9;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 15px;
+      padding-top: 15px;
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15) inset;
+    }
+
+    .form-box {
+      height: 80vh;
+      width: 240px;
+      background-color: #b8b7b0;
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 1em;
+    }
+    
+    .save-ride-button {
+        size: 80px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    p {
+      margin: 8px;
+    }
+    
+    input[type=text], select {
+      width: 90%;
+      padding: 8px 10px;
+      margin: 8px ;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+ 
+
+  }
+
+
+
+    @media screen and (max-width: 655px) {
+
+      .bottom-book-ride {
+        height: 45vh;
+      }
+      .top-book-ride {
+        height: 55vh;
+        width: 100vw;
+      }
+      .top-book-ride {
+        background-color: #e5e4d9;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15) inset;
+      }
+
+      .form-box {
+        height: 80vh;
+        width: 240px;
+        background-color: #b8b7b0;
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 1em;
+      }
+      
+      .save-ride-button {
+          width: 120px;
+          border-radius: 5px;
+      }
+
+      p {
+        margin: 30px;
+      }
+      
+      .form {
+        color: rgb(53, 49, 46);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+      input[type=text], select {
+        width: 90%;
+        padding: 8px 10px;
+        margin: 8px ;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+    }
+
+
+
+/* .bottom-book-ride,
 .top-book-ride {
   height: 40vh;
   width: 100vw;
-}
+} */
 
-.top-book-ride {
-  background-color: #e5e4d9;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 15px;
-  padding-top: 15px;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15) inset;
-}
 
-p {
-  margin: 8px;
-}
 
-input {
-  margin: 20px;
-  height: 20px;
-}
 
 input:focus {
   outline: 0px;
   border-color: rgb(167, 131, 69);
 }
 
-.form-box {
-  height: 80vh;
-  width: 240px;
-  background-color: #b8b7b0;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 1em;
-}
 
-.save-ride-button {
-    width: 120px;
-    border-radius: 5px;
-}

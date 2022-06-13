@@ -1,30 +1,117 @@
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 120px;
+@media screen and (min-width: 999px) {
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 240px;
+        padding-top:15px;
+    }
+
+    .header-home {
+        font-size: 65px;
+        font-weight: bold;
+        color:rgb(53, 49, 46)
+    }
+    .book-ride {
+        margin-left: 15vw;
+        margin-right: 5vw;
+        text-decoration: 'none';
+    }
+    
+    .all-rides {
+        margin-left: 5vw;
+        margin-right: 15vw;
+        text-decoration: 'none';
+    }
+    
+    .book-ride-text,
+    .all-rides-text {
+        font-size: 30px;
+
+    }
 }
 
-.header-home {
-    font-size: 55px;
-    font-weight: bold;
-    color:rgb(53, 49, 46)
-}
-.book-ride {
-    margin-left: 15vw;
-    margin-right: 5vw;
-    text-decoration: 'none';
+@media screen and (max-width: 1001px) {
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 240px;
+    }
+
+    .header-home {
+        font-size: 55px;
+        font-weight: bold;
+        color:rgb(53, 49, 46)
+    }
+    .book-ride {
+        margin-left: 12vw;
+        margin-right: 3vw;
+        text-decoration: 'none';
+    }
+    
+    .all-rides {
+        margin-left: 3vw;
+        margin-right: 12vw;
+        text-decoration: 'none';
+    }
+    
+    .all-rides {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 5vw;
+        margin-right: 15vw;
+        text-decoration: 'none';
+    }
+
+    .book-ride-text,
+    .all-rides-text {
+        font-size: 24px;
+
+    }
+    
 }
 
-.all-rides {
-    margin-left: 5vw;
-    margin-right: 15vw;
-    text-decoration: 'none';
-}
+@media screen and (max-width: 655px) {
 
+    .nav {
+    display: grid;
+	grid-template-columns:  1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+	grid-auto-rows: auto;
+    height: 180px;
+    padding: 10px;
+    }
+
+    /* .book-ride-text,
+    .all-rides-text { 
+    font-size: 22px;
+    } */
+    .all-rides,
+    .book-ride {
+        font-size: 22px;
+        margin-left: 0vw;
+        margin-right: 0vw;
+    }
+
+    .header-home {
+        font-size: 40px;
+        font-weight: bold;
+        color:rgb(53, 49, 46)
+    }
+    
+}
+.header-home,
 .book-ride-text,
 .all-rides-text {
     color:rgb(53, 49, 46)
-
 }
+.book-ride,
+.all-rides {
+    text-decoration: 'none';
+}
+
+
 

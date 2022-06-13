@@ -110,7 +110,7 @@ clearInputs = () => {
                 onChange={(e) => this.handleMilesChange(e)}
               />
               <input
-                type="date"
+                type="text"
                 placeholder={new Date().toLocaleDateString()}qc
                 name="date"
                 value={date}
