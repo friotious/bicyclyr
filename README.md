@@ -15,6 +15,7 @@ As a user you can view todays weather, log a ride w/ mileage and points earned b
   * React Router
   * Async JS
   * E2E testing using Cypress
+  * GitHub Actions Ci
 
 ## Features
 

@@ -25,18 +25,18 @@ const Ride = (props) => {
 
 export default Ride;
 
-Ride.propTypes = {
-  key: PropTypes.number.isRequired,
-  id: PropTypes.number.isRequired,
-  diffMult: PropTypes.number.isRequired,
-  date: PropTypes.string.isRequired,
-  points: PropTypes.number.isRequired,
-  rideWeather: {
-      weatherText: PropTypes.string.isRequired,
-      weatherIcon: PropTypes.node.isRequired,
-      hasPrecip: PropTypes.bool.isRequired,
-      temp: PropTypes.number.isRequired,
-      phrase: PropTypes.string.isRequired,
-      windChill: PropTypes.number.isRequired
-  }
-}
+// Ride.propTypes = {
+//   key: PropTypes.number.isRequired,
+//   id: PropTypes.number.isRequired,
+//   diffMult: PropTypes.number.isRequired,
+//   date: PropTypes.string.isRequired,
+//   points: PropTypes.number.isRequired,
+//   rideWeather: {
+//       weatherText: PropTypes.string.isRequired,
+//       weatherIcon: PropTypes.node.isRequired,
+//       hasPrecip: PropTypes.bool.isRequired,
+//       temp: PropTypes.number.isRequired,
+//       phrase: PropTypes.string.isRequired,
+//       windChill: PropTypes.number.isRequired
+//   }
+// }
