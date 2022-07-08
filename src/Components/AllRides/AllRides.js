@@ -29,9 +29,7 @@ function AllRides({ allRides }) {
   );
 }
 
-export default AllRides;
-
-AllRides.propTypes = [{
+AllRides.propTypes = {
     id: PropTypes.number.isRequired,
     diffMult: PropTypes.number.isRequired,
     date: PropTypes.string.isRequired,
@@ -44,5 +42,7 @@ AllRides.propTypes = [{
         phrase: PropTypes.string.isRequired,
         windChill: PropTypes.number.isRequired
     }
-}]
+}
+export default AllRides;
+
 

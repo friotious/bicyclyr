@@ -106,7 +106,7 @@ class BookRide extends Component {
               <input
                 type="text"
                 placeholder={new Date().toLocaleDateString()}
-                qc
+                
                 name="date"
                 value={date}
                 onChange={(e) => this.handleDateChange(e)}
@@ -127,13 +127,13 @@ class BookRide extends Component {
   }
 }
 
+// BookRide.propTypes = {
+//   weatherText: PropTypes.string.isRequired,
+//   weatherIcon: PropTypes.node.isRequired,
+//   hasPrecip: PropTypes.bool.isRequired,
+//   temp: PropTypes.number.isRequired,
+//   phrase: PropTypes.string.isRequired,
+//   windChill: PropTypes.number.isRequired,
+// };
 export default BookRide;
 
-BookRide.propTypes = {
-  weatherText: PropTypes.string.isRequired,
-  weatherIcon: PropTypes.node.isRequired,
-  hasPrecip: PropTypes.bool.isRequired,
-  temp: PropTypes.number.isRequired,
-  phrase: PropTypes.string.isRequired,
-  windChill: PropTypes.number.isRequired,
-};
